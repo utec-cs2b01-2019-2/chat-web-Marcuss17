@@ -226,6 +226,15 @@ def suma(numero):
     session['suma'] = suma
     return str(suma)
 
+#Login
+@app.route('/authenticate/<username>/<password>')
+def authenticate(username, password):
+    if username ==  'emedina' and password == 'etass':
+        session['usuario'] = username
+        return "Welcome " + username
+    else:
+        return "Sorry " + username + " you are not a valid username."
+
 if __name__ == '__main__':
     app.secret_key = ".."
     app.run(debug=True,port=8000, threaded=True, host=('127.0.0.1'))
