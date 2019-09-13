@@ -207,11 +207,9 @@ def suma(numero):
 def authenticate():
     username = request.form['username']
     password = request.form['password']
-    if username == 'emedina' and password == 'hola':
-        session['usuario'] = username
-        return "Welcome " + username
-    else:
+    if username != 'emedina' and password != 'hola':
         return "Sorry " + username+" you are not a valid user"
+
 
 
 
