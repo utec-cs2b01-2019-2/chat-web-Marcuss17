@@ -9,7 +9,19 @@ width: 20%;
 padding: 12px 20px;
 margin: 0px 0;
 box-sizing: border-box;
-margin-left: 600px;
+display: inline-block;
+}
+
+#form-wrapper
+{
+    height:100%;
+    flex: 1 1 auto;
+    margin:0 auto;
+    display:block;
+}
+
+#form-wrapper input{
+    display:block;
 }
 
 
@@ -20,7 +32,6 @@ width: 20%;
 padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;
-margin-left: 600px;
 }
 
 input[type=submit] {
@@ -30,7 +41,6 @@ width: 10%;
 padding: 12px 20px;
 margin: 0px 0;
 box-sizing: border-box;
-margin-left: 675px;
 background-color: white;
 color: black;
 -webkit-transition-duration: 0.4s; /* Safari */
