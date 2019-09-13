@@ -210,9 +210,18 @@ def logout():
     session.clear()
     return render_template('login.html')
 
+#stateless interaction
 @app.route('/cuantasletras/<nombre>')
 def cuantasletras(nombre):
     return str(len(nombre))
+
+#statefull interaction
+@app.route('/suma/<numero>')
+def suma(numero):
+    suma = session['suma']
+    suma = suma + int(numero)
+    session[suma] = suma
+    return str(suma)
 
 if __name__ == '__main__':
     app.secret_key = ".."
