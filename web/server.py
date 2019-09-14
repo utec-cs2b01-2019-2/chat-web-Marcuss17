@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request, session, Response, redirect
+from flask import Flask,render_template, request, session, Response, redirect, url_for
 from database import connector
 from model import entities
 import datetime
@@ -207,9 +207,11 @@ def suma(numero):
 def authenticate():
     username = request.form['username']
     password = request.form['password']
-    if username != 'emedina' and password != 'hola':
+    if username == 'emedina' and password == 'hola':
+        session['usuario'] = username
+        return redirect('http://127.0.0.1:8000/static/Chat.html')
+    else:
         return "Sorry " + username+" you are not a valid user"
-
 
 
 
