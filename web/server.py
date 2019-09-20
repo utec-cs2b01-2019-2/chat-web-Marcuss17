@@ -207,6 +207,13 @@ def suma(numero):
 def authenticate():
     username = request.form['username']
     password = request.form['password']
+    db_session = db.getSession(engine)
+    user = db_session.query(entities.User).filter(
+        entities.User.username == username
+    ).filter(
+        entities.User.password == password
+    ).first()
+
     if username == 'emedina' and password == 'hola':
         session['usuario'] = username
         return redirect('http://127.0.0.1:8000/static/Chat.html')
