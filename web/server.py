@@ -275,7 +275,27 @@ def get_all_groups():
     data = dbResponse[:]
     return Response(json.dumps(data, cls = connector.AlchemyEncoder),mimetype='application/json')
 
-#UPDATE
+#3.Update
+@app.route('/groups/<id>',methods = ['PUT']) #Se pone el <id> Porque se necesita saber cual es para modificarlo
+def update_group():
+    session_db = db.getSession(engine)
+    group = session_db.query(entities.Group).filter(
+    entities.Group.id == id).first() #Hace un filtro segun id.
+    c = json.loads(request.data) #Asinga a c la info que se le manda
+    for key in c.keys():
+        setattr(group, key, c[key])
+    session.add(group)
+    session.commit()
+    return 'Updated Group'
+
+#4.Delete
+@app.route('/groups/<id>',methods =['DELETE'])
+def delete_group(id):
+    session = db.getSession(engine)
+    group = session.query(entities.Group).filter(entities.Group.id == id).one()
+    session.delete(group)
+    session.commit()
+    return "Deleted Group"
 
 if __name__ == '__main__':
     app.secret_key = ".."
