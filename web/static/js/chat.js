@@ -9,7 +9,7 @@ function get_all_users(){
     var i =0;
     $.each(data, function(){
         user_to = data[i]['id'];
-        e = '<li class="contact"><p>'data[i]['username']+'</p></li>';
+        e = '<li class="contact"><p>'+data[i]['username']+'</p></li>';
         i = i+1;
         $("<div/>",{html:e}).appendTo("#users");
         });
