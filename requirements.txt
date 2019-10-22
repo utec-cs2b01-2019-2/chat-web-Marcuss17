@@ -15,3 +15,4 @@ pyxdg==0.25
 SecretStorage==2.3.1
 six==1.11.0
 Werkzeug==0.16.0
+SQLAlchemy==1.2.7
