@@ -1,1 +1,1 @@
-web: python3 ~/web/server.py
+web: gunicorn -b :$PORT app:app
